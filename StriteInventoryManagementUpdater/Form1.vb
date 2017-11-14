@@ -1,6 +1,6 @@
 ﻿'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Project: Strite Inventory Management Software Updater
-'Description: Software built with the purpose of checking and applying udates to the in-house software "Strite Inventory Management"
+'Description: Software built with the purpose of checking and applying updates to the in-house software "Strite Inventory Management"
 'Created By: Nick Hallick
 '            Process Engineer
 '            nhallick@strite.com
@@ -59,7 +59,7 @@ Public Class StriteInventoryManagementUpdater
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        'when the settings button on the right click menu is clicked then show the form if it isnt already shown
+        'when the settings button on the right click menu is clicked then show the form if it isn't already shown
         Show()
         WindowState = FormWindowState.Normal
         BringToFront()
@@ -89,8 +89,8 @@ Public Class StriteInventoryManagementUpdater
     End Sub
 
     Private Sub BtnOK_Click(sender As Object, e As EventArgs)
-        'if the ok button is pressed on the form then minimize the window
-        'this is put there in case the user is aprehensive of clicking the close button to minimize.
+        'if the OK button is pressed on the form then minimize the window
+        'this is put there in case the user is apprehensive of clicking the close button to minimize.
         WindowState = FormWindowState.Minimized
     End Sub
 
@@ -99,7 +99,7 @@ Public Class StriteInventoryManagementUpdater
         OpenFile.Title = "Choose master program file location..."
         OpenFile.ShowDialog()
 
-        'set the textbox text to the file path
+        'set the text box text to the file path
         TBMasterProgram.Text = OpenFile.FileName
         'set the master program variable in settings to the file path as well
         My.Settings.MasterProgram = OpenFile.FileName
@@ -132,13 +132,13 @@ Public Class StriteInventoryManagementUpdater
         'checks the last modified date for the local program
         Fdatelocal = File.GetLastWriteTime(Fnamelocal)
 
-        'chekcs to see if the local and master program have the same date. if they do not then it starts the process to notify the user of an available update.
+        'checks to see if the local and master program have the same date. if they do not then it starts the process to notify the user of an available update.
         If Fdatemaster <> Fdatelocal Then
             lblstatus.Text = "Local program is out of date. Please update as soon as convenient."
             'shows a balloon notification for 500ms before fading
             UpdateNotify.ShowBalloonTip(500)
 
-            'ask the user if they would like to update at this time and save their respose (vbYes/vbNo)
+            'ask the user if they would like to update at this time and save their response (vbYes/vbNo)
             Answer = MsgBox("A new version of Strite Inventory Management is available, would you like to update?", vbYesNo + vbInformation, "Update?")
             If Answer = vbYes Then
                 'calls the clicking event for the update button
@@ -218,7 +218,7 @@ Public Class StriteInventoryManagementUpdater
     End Sub
 
     Private Sub Label1_DoubleClick(sender As Object, e As EventArgs) Handles Label1.DoubleClick
-        'used as a rudimentary security measure. master program button and textbox are disabled unless the label is double clicked. can be disabled again by double clicking again.
+        'used as a rudimentary security measure. master program button and text box are disabled unless the label is double clicked. can be disabled again by double clicking again.
         If TBMasterProgram.Enabled = False Then
             TBMasterProgram.Enabled = True
         Else
@@ -234,7 +234,7 @@ Public Class StriteInventoryManagementUpdater
     End Sub
 
     Private Sub Label2_DoubleClick(sender As Object, e As EventArgs) Handles Label2.DoubleClick
-        'used as a rudimentary security measure. local program button and textbox are disabled unless the label is double clicked. can be disabled again by double clicking again.
+        'used as a rudimentary security measure. local program button and text box are disabled unless the label is double clicked. can be disabled again by double clicking again.
         If TBLocalProgram.Enabled = False Then
             TBLocalProgram.Enabled = True
         Else
